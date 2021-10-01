@@ -1,6 +1,5 @@
 import axios from "axios";
-
-const URL_ROOT = 'http://localhost:5555'
+import { URL_ROOT } from "../config/config"
 
 export const getHourlyEvents = async () => {
     return await axios.get(`${URL_ROOT}/events/hourly`)
