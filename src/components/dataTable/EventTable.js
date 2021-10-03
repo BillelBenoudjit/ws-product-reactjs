@@ -32,7 +32,7 @@ const EventTable = () => {
         } else {
             servicesApi()
         }
-    }, [searchValue, hourlyEventsWithPoi])
+    }, [searchValue])
 
     return (
         <>

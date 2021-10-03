@@ -31,7 +31,7 @@ const StatTable = () => {
         } else {
             servicesApi()
         }
-    }, [searchValue, hourlyStatsWithPoi])
+    }, [searchValue])
 
     return (
         <>
