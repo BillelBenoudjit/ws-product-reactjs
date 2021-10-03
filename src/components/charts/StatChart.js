@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import moment from 'moment'
 import { Bar } from 'react-chartjs-2';
 
-const StatChart = ({ dailyStats }) => {
-    console.log(dailyStats)
+import { getDailyStats } from '../../services/services'
+
+const StatChart = () => {
+    const [dailyStats, setDailyStats] = useState([])
+
+    const servicesApi = async () => {
+        try {
+            getDailyStats().then(({ data }) => {
+                setDailyStats(data)
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        servicesApi()
+    }, [])
+
     const data = {
         labels: dailyStats?.map(stat => moment(stat.date).utc().format('MM/DD/YYYY')), //['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [

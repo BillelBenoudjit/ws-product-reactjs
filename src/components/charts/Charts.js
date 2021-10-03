@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import EventChart from './EventChart'
 import StatChart from './StatChart'
 
-const Charts = ({ dailyEvents, dailyStats }) => {
+const Charts = () => {
     return (
         <div>
-            <EventChart dailyEvents={dailyEvents} />
-            <StatChart dailyStats={dailyStats} />
+            <EventChart />
+            <StatChart />
         </div>
     )
 }

@@ -1,9 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import GoogleMapReact from 'google-map-react'
 
 import { API_KEY } from "../../config/config"
 
-const GeoVisualization = ({ poi }) => {
+import { getPoi } from "../../services/services"
+
+const GeoVisualization = () => {
+    const [poi, setPoi] = useState([])
+
+    const servicesApi = async () => {
+        try {
+            getPoi().then(({ data }) => {
+                setPoi(data)
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        servicesApi()
+    }, [])
+
     const renderMarkers = (map, maps, location) => {
         let marker = new maps.Marker({
             position: { lat: location.lat, lng: location.lon },
