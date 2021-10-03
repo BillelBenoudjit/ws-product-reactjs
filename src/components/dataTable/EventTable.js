@@ -53,7 +53,7 @@ const EventTable = () => {
                 <Pagination.Last onClick={() => setCurrentEventPage(Math.floor(setHourlyEventsWithPoi?.length / eventPageSize))} />
             </Pagination>
 
-            <Table striped bordered hover>
+            <Table striped bordered hover responsive>
                 <thead>
                     <tr>
                         <th>Date</th>
