@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Table, Pagination, Container } from 'react-bootstrap';
+import { Table, Pagination } from 'react-bootstrap';
 import moment from 'moment'
 import Fuse from 'fuse.js'
 
@@ -8,9 +8,10 @@ import { getHourlyEventsWithPoi } from '../../services/services'
 
 const EventTable = () => {
     const [currentEventPage, setCurrentEventPage] = useState(1)
-    const [eventPageSize, setEventPageSize] = useState(5)
     const [searchValue, setSearchValue] = useState("")
     const [hourlyEventsWithPoi, setHourlyEventsWithPoi] = useState([])
+
+    const eventPageSize = 5
 
     const servicesApi = async () => {
         try {
@@ -31,7 +32,7 @@ const EventTable = () => {
         } else {
             servicesApi()
         }
-    }, [searchValue])
+    }, [searchValue, hourlyEventsWithPoi])
 
     return (
         <>

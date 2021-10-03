@@ -40,7 +40,7 @@ const GeoVisualization = () => {
                 yesIWantToUseGoogleMapApiInternals={true}
                 onGoogleApiLoaded={({ map, maps }) => {
                     poi.map((location, index) => {
-                        renderMarkers(map, maps, location)
+                        return renderMarkers(map, maps, location)
                     })
                 }}
             >

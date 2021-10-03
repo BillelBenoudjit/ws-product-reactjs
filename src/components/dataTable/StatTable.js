@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Table, Pagination, Container } from 'react-bootstrap';
+import { Table, Pagination } from 'react-bootstrap';
 import moment from 'moment'
 import Fuse from 'fuse.js'
 
@@ -7,9 +7,10 @@ import { getHourlyStatsWithPoi } from '../../services/services'
 
 const StatTable = () => {
     const [currentStatPage, setCurrentStatPage] = useState(1)
-    const [statPageSize, setStatPageSize] = useState(5)
     const [searchValue, setSearchValue] = useState("")
     const [hourlyStatsWithPoi, setHourlyStatsWithPoi] = useState([])
+
+    const statPageSize = 5
 
     const servicesApi = async () => {
         try {
@@ -30,7 +31,7 @@ const StatTable = () => {
         } else {
             servicesApi()
         }
-    }, [searchValue])
+    }, [searchValue, hourlyStatsWithPoi])
 
     return (
         <>
